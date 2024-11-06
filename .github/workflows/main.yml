@@ -1,0 +1,31 @@
+name: Run Optimus Workflow
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  run_Optimus_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: binary by @bgmi
+        run: chmod +x bgmi
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install required packages
+        run: |
+          pip install telebot pymongo aiohttp flask certifi python-telegram-bot
+
+      - name: Run g.py
+        run: python3 g.py
+        
