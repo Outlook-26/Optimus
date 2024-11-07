@@ -15,8 +15,8 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v2
 
-      - name: binary by @bgmi
-        run: chmod +x bgmi
+      - name: binary by @Spike
+        run: chmod +x Spike
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
